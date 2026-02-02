@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainrot Market - Secret Rarity Only</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .listing-card { transition: transform 0.2s; }
+        .listing-card:hover { transform: translateY(-5px); }
+        .robux-price { background: linear-gradient(45deg, #f7931e, #ffcc00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .steal-btn { background: linear-gradient(45deg, #ff416c, #ff4b2b); border: none; }
+        .sell-btn { background: linear-gradient(45deg, #11998e, #38ef7d); border: none; }
+        .secret-badge { background: linear-gradient(45deg, #ff6b6b, #ffd93d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-brain me-2"></i>Secret Brainrot Market</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="#sell">Sell Secret</a>
+                <a class="nav-link" href="#marketplace">Marketplace</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container mt-5">
+        <div class="text-center text-white mb-5">
+            <h1 class="display-4 fw-bold mb-4">🧠 Secret Brainrots Only</h1>
+            <p class="lead">Trade Secret rarity Brainrots for Robux. P2P trading only.</p>
+            <p class="lead">✨ AFTER LISTING, you will be dmed by our STAFF and he will buy your brainrot</p>
+            <button class="btn sell-btn fs-5 px-4 py-2 mt-3" data-bs-toggle="modal" data-bs-target="#sellModal">
+                <i class="fas fa-plus me-2"></i>List Secret Brainrot
+            </button>
+        </div>
+    </div>
+
+    <!-- Marketplace -->
+    <section id="marketplace" class="container mb-5">
+        <h2 class="text-white text-center mb-5">🔥 Secret Listings</h2>
+        <div class="row" id="listings">
+            <!-- Real Steal a Brainrot Secret Names -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-card h-100 shadow-lg border-0">
+                    <img src="https://via.placeholder.com/400x250/ff1493/fff?text=Garama and Madundung 🧂 " class="card-img-top" alt="Brainrot">
+                    <div class="card-body">
+                        <h5 class="card-title">Garama and Madundung 🧂</h5>
+                        <p class="card-text secret-badge fw-bold mb-0">🛡️ SECRET | 5 Mutations</p>
+                        <h3 class="robux-price mb-3 fw-bold">15,000 <i class="fas fa-coins"></i></h3>
+                        <p class="small text-muted">Seller: @BrainrotKing</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <button class="btn steal-btn text-white w-100 mb-2">
+                            <i class="fas fa-hand-paper me-2"></i>Steal (Send Trade)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-card h-100 shadow-lg border-0">
+                    <img src="https://via.placeholder.com/400x250/ffd700/222?text=Strawberry Elephant 🍓" class="card-img-top" alt="Strawberry Elephant 🍓">
+                    <div class="card-body">
+                        <h5 class="card-title">Strawberry Elephant 🍓</h5>
+                        <p class="card-text secret-badge fw-bold mb-0">🛡️ SECRET | 7 Mutations</p>
+                        <h3 class="robux-price mb-3 fw-bold">35,000 <i class="fas fa-coins"></i></h3>
+                        <p class="small text-muted">Seller: @MegaHunter</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <button class="btn steal-btn text-white w-100 mb-2">
+                            <i class="fas fa-hand-paper me-2"></i>Steal (Send Trade)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card listing-card h-100 shadow-lg border-0">
+                    <img src="https://via.placeholder.com/400x250/8a2be2/fff?text=Meowl 🦉" class="card-img-top" alt="Meowl 🦉">
+                    <div class="card-body">
+                        <h5 class="card-title">Meowl 🦉</h5>
+                        <p class="card-text secret-badge fw-bold mb-0">🛡️ SECRET | 9 Mutations</p>
+                        <h3 class="robux-price mb-3 fw-bold">75,000 <i class="fas fa-coins"></i></h3>
+                        <p class="small text-muted">Seller: @TurboMaster</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <button class="btn steal-btn text-white w-100 mb-2">
+                            <i class="fas fa-hand-paper me-2"></i>Steal (Send Trade)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sell Modal -->
+    <div class="modal fade" id="sellModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title secret-badge"><i class="fas fa-lock me-2"></i>List Secret Brainrot</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="sellForm">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Brainrot Name</label>
+                            <input type="text" id="brainrotName" class="form-control" placeholder="Brainrot, Strawberry Elephant 🍓, Strawberry Elephant 🍓, etc." required>
+                            <small class="text-muted">Real Secret names from Steal a Brainrot</small
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label secret-badge">Rarity</label>
+                                <select class="form-select" disabled>
+                                    <option selected>🛡️ SECRET</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Robux Price <i class="fas fa-coins"></i></label>
+                                <input type="number" id="robuxPrice" class="form-control" placeholder="15000" min="1000" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Mutations (0-10)</label>
+                            <input type="number" id="mutations" class="form-control" placeholder="5" min="0" max="10" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Screenshot (Optional)</label>
+                            <input type="url" id="imageUrl" class="form-control" placeholder="https://i.imgur.com/xxx.png">
+                            <small class="text-muted">Upload to Imgur/Discord CDN, or leave empty</small>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Roblox Username</label>
+                                <input type="text" id="robloxUser" class="form-control" placeholder="@YourRobloxName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Discord (Username or ID)</label>
+                                <input type="text" id="discordUser" class="form-control" placeholder="user#1234 or 123456789" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" class="btn sell-btn text-white px-4">
+                            <i class="fas fa-paper-plane me-2"></i>Sell Brainrot
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white py-4 mt-5">
+        <p>⚠️ Secret Rarity Only | P2P Trading | Roblox TOS</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('sellForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const imageUrl = document.getElementById('imageUrl').value.trim();
+            const formData = {
+                name: document.getElementById('brainrotName').value,
+                rarity: '🛡️ SECRET',
+                price: document.getElementById('robuxPrice').value,
+                mutations: document.getElementById('mutations').value,
+                image: imageUrl || 'No screenshot provided',
+                roblox: document.getElementById('robloxUser').value,
+                discord: document.getElementById('discordUser').value,
+                timestamp: new Date().toLocaleString('en-US', {timeZone: 'Asia/Kolkata'})
+            };
+            
+            // Build Discord message
+            let discordMessage = `🧠 **NEW SECRET BRAINROT LISTING** 🧠
+
+` +
+                               `📛 **Name:** ${formData.name}
+` +
+                               `🛡️ **Rarity:** ${formData.rarity}
+` +
+                               `💰 **Price:** ${formData.price} Robux
+` +
+                               `🔢 **Mutations:** ${formData.mutations}
+` +
+                               `👤 **Roblox:** ${formData.roblox}
+` +
+                               `💬 **Discord:** ${formData.discord}
+` +
+                               `⏰ **Time:** ${formData.timestamp}`;
+            
+            if (imageUrl) {
+                discordMessage += `
+📸 **Screenshot:** ${imageUrl}`;
+            }
+            
+            try {
+                const response = await fetch('https://discord.com/api/webhooks/1467557214154657950/-z7_OWgRgRG0G2dRzPAExuCfplaWTJ3emKFAUnEsqOLTAZSGSHZK3WYxPJdvtecWyzYP', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: discordMessage })
+                });
+                
+                if (response.ok) {
+                    alert('✅ Listing sent to Discord successfully!');
+                    bootstrap.Modal.getInstance(document.getElementById('sellModal')).hide();
+                    this.reset();
+                } else {
+                    alert('❌ Failed to send. Check webhook.');
+                }
+            } catch (error) {
+                alert('❌ Network error. Try again.');
+            }
+        });
+    </script>
+</body>
+</html>
