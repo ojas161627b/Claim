@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name</title>
+<title>Axey</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -13,135 +13,148 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-
-  /* Disable selection */
   user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
-
-  /* Disable long press highlight */
   -webkit-touch-callout: none;
 }
 
 body {
   height: 100vh;
-  overflow: hidden;
+  background: url('background.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  background: black;
+  overflow: hidden;
 }
 
-/* Remove tap highlight */
-a, button, img {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Background */
-.background {
+.overlay {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: url('background.jpg') no-repeat center center/cover;
-  filter: blur(8px) brightness(0.6);
-  z-index: -1;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  transition: 0.8s ease;
 }
 
-/* Card */
-.card {
+.overlay h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.continue-btn {
+  padding: 12px 30px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  color: black;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.continue-btn:hover {
+  transform: scale(1.05);
+}
+
+.main-content {
+  display: none;
   text-align: center;
-  backdrop-filter: blur(15px);
-  background: rgba(0, 0, 0, 0.4);
-  padding: 40px;
-  border-radius: 20px;
-  width: 320px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  animation: fadeIn 1s ease forwards;
 }
 
 .pfp {
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   border: 3px solid white;
   margin-bottom: 20px;
   object-fit: cover;
-  pointer-events: none; /* Prevent image drag */
-}
-
-h1 {
-  font-size: 22px;
-  margin-bottom: 20px;
+  pointer-events: none;
 }
 
 .buttons a {
   display: block;
-  margin: 10px 0;
+  margin: 10px auto;
   padding: 12px;
+  width: 200px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s ease;
+  color: white;
+  transition: 0.3s;
 }
 
 .instagram {
   background: linear-gradient(45deg, #f09433, #dc2743, #cc2366);
-  color: white;
 }
 
 .discord {
   background: #5865F2;
-  color: white;
 }
 
 .buttons a:hover {
   transform: scale(1.05);
-  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body oncontextmenu="return false">
 
-<div class="background"></div>
+<!-- Intro Screen -->
+<div class="overlay" id="intro">
+  <h1>Axey</h1>
+  <button class="continue-btn" id="continueBtn">Continue</button>
+</div>
 
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="card">
+<!-- Main Content -->
+<div class="main-content" id="mainContent">
   <img src="pfp.jpg" class="pfp">
-  <h1>Your Username</h1>
-
   <div class="buttons">
     <a href="https://instagram.com/yourusername" target="_blank" class="instagram">
       Instagram
     </a>
-
     <a href="https://discord.gg/yourinvite" target="_blank" class="discord">
       Discord
     </a>
   </div>
 </div>
 
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-/* Disable right click */
-document.addEventListener('contextmenu', event => event.preventDefault());
+const intro = document.getElementById("intro");
+const mainContent = document.getElementById("mainContent");
+const music = document.getElementById("bgMusic");
+const continueBtn = document.getElementById("continueBtn");
 
-/* Disable drag */
-document.addEventListener('dragstart', event => event.preventDefault());
-
-/* Disable certain key shortcuts */
-document.addEventListener('keydown', function(e) {
-  if (e.ctrlKey && ['u','s','c','x','v'].includes(e.key.toLowerCase())) {
-    e.preventDefault();
-  }
-  if (e.key === "F12") {
-    e.preventDefault();
-  }
+continueBtn.addEventListener("click", () => {
+  music.play();
+  intro.style.opacity = "0";
+  setTimeout(() => {
+    intro.style.display = "none";
+    mainContent.style.display = "block";
+  }, 800);
 });
+
+/* Extra protection */
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
 </script>
 
 </body>
